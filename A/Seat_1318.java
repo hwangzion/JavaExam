@@ -15,12 +15,11 @@ public class Seat_1318 {
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
                 if(i == 0){
-                    arr[i][j] = "[ X ]";
-                    reservation++;
+                    arr[i][j] = "[ R ]";
                 }else{
                     arr[i][j] = "[ O ]";
-                    blank++;
                 }
+                blank++;
             }
         }//자리
 
@@ -29,7 +28,7 @@ public class Seat_1318 {
                 System.out.print(arr[i][j]);
             }
             System.out.println();
-        }// 자리 출력
+        }//자리 출력
         System.out.printf("빈 자리 : %d개 | 예약된 자리 : %d개",blank,reservation);
         System.out.println();
 
@@ -42,15 +41,15 @@ public class Seat_1318 {
             System.out.print("1.예약 2.취소 3.현황 4.종료 : "); //메뉴
             select = sc.nextInt();
             if (select == 1) {
-                System.out.print("에약할 행 번호 : ");
+                System.out.print("예약할 행 번호 : ");
                 row = sc.nextInt();
-                System.out.print("에약할 열 번호 : ");
+                System.out.print("예약할 열 번호 : ");
                 col = sc.nextInt();
-                if (arr[row][col] == "[ X ]") {
-                    System.out.printf("[오류] 이미 예약된 좌석입니다");
+                if (arr[row - 1][col - 1] == "[ X ]") {
+                    System.out.print("[오류] 이미 예약된 좌석입니다");
                 } else {
                     System.out.printf("%d행 %d열  좌석 예약 완료!", row, col);
-                    arr[row][col] = "[ X ]";
+                    arr[row - 1][col - 1] = "[ X ]";
                     reservation++;
                     blank--;
                 }//1. 예약
@@ -61,15 +60,15 @@ public class Seat_1318 {
                 row = sc.nextInt();
                 System.out.print("취소할 열 번호 : ");
                 col = sc.nextInt();
-                if(arr[row][col].equals("[ O ]")) {
+                if(arr[row - 1][col - 1].equals("[ O ]")) {
                     System.out.printf("%d행 %d열  좌석 취소 완료!", row, col);
-                    arr[row][col] = "[ O ]";
+                    arr[row - 1][col - 1] = "[ O ]";
                     blank++;
                     reservation--;
                 }else{
                     System.out.println("[오류] 이미 비어있는 좌석입니다. ");
                 }//내용 추가
-            }//2.취소
+            }//2.v취소
 
             if(select == 3){
                 System.out.println("=== 극장 좌석 예약 시스템 ===");
