@@ -3,7 +3,6 @@ package main.Test.test2026_1_2.A;
 import java.util.*;
 
 //1318황지온
-//sort 사용
 public class MergeA_1318 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -37,6 +36,21 @@ public class MergeA_1318 {
                 arr3[i] = arr2[i - 5];
             }
         }
+
+        for(int i = 0; i < arr3.length - 1; i++){
+            int indexMax = i;
+
+            for(int j = i + 1; j < arr3.length; j++){
+                if(arr3[j] > indexMax){
+                    indexMax = j;
+                }
+            }
+            int temp = arr3[i];
+            arr3[i] = arr3[indexMax];
+            arr3[indexMax] = temp;
+        } //오름차순으로정랼
+
+
         Arrays.sort(arr3);
 
         for(int i = 0; i < arr3.length; i++){
