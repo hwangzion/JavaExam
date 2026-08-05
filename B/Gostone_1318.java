@@ -73,7 +73,7 @@ public class Gostone_1318 {
                     System.out.println();
                 }//바둑판
 
-                System.out.printf("백돌 : %d 개 흑돌 : %d개", w, b); //흑백 갯수
+                System.out.printf("백돌 : %d개 흑돌 : %d개", w, b); //흑백 갯수
                 System.out.println();
 
             }//3.현황
